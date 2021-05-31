@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- CSS Section -->
-  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.css">
-  <link rel="stylesheet" href="/content/app.css">
-</head>
-<body>
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
+<%- include ('partials/header.ejs') %>
 
-  <!-- JavaScript Section -->
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../client/scripts/app.js"></script>
-</body>
-</html>
+<%- include ('partials/main_nav.ejs') %> 
+  
+  <!-- Main Body -->
+  <main class="container">
+    <div class="row h-100 p-5 bg-light border rounded-3">
+      <h1 class="display-4">Welcome to the <%= title %> Page</h1>
+      
+      <div><i class="fas fa-mobile fa-10x"></i> +1 (647) 616-3701</div>
+      <div><i class="fab fa-github fa-lg"></i> <a href="https://github.com/Deaniesaur">https://github.com/Deaniesaur</a></div>
+      <div><i class="fab fa-facebook fa-lg"></i></i> <a href="https://www.facebook.com/Deaniesaur">https://www.facebook.com/Deaniesaur</a></div>
+    </div>
+  </main>
+
+<%- include ('partials/bottom_nav.ejs') %>
+
+<%- include ('partials/footer.ejs') %>
