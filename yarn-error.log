@@ -1,0 +1,31 @@
+Arguments: 
+  C:\program files\nodejs\node.exe C:\Users\Asus\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\Asus\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Asus\bin;C:\app\asus\product\18.0.0\dbhomexe\bin;C:\windows\system32;C:\windows;C:\windows\system32\wbem;C:\windows\system32\windowspowershell\v1.0;C:\windows\system32\openssh;C:\jdk-15.0.2\bin;C:\program files\dotnet;C:\program files (x86)\zerotier\one;C:\program files\git\cmd;C:\program files\nodejs;C:\program files\nvidia corporation\nvidia nvdlisr;C:\Users\Asus\AppData\Local\Microsoft\WindowsApps;C:\Users\Asus\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\bin;C:\Users\Asus\.dotnet\tools;C:\Users\Asus\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  16.1.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Users\Asus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:96361:59)
+      at Object.<anonymous> (C:\Users\Asus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:88636:38)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Asus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Asus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
