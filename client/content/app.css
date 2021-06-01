@@ -1,1 +1,18 @@
 /* your custom css goes here */
+logo {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 54px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  padding: 5px 20px;
+}
+
+emphasized {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 72px;
+  font-style: block;
+  font-variant: normal;
+  font-weight: 700;
+  padding: 5px;
+}
