@@ -88,3 +88,19 @@ emphasized {
   background-size: contain;
   /* Other styles here */
 }
+
+.c-sharp-icon {
+  background: url("/assets/images/c_sharp_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.carousel .carousel-inner img {
+  width: 100%;
+  height: 30em;
+  object-fit: contain;
+  overflow: hidden;
+}
