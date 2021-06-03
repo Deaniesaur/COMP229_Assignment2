@@ -70,3 +70,21 @@ emphasized {
   background-size: contain;
   /* Other styles here */
 }
+
+.spring-icon {
+  background: url("/assets/images/spring_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.lombok-icon {
+  background: url("/assets/images/lombok_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
