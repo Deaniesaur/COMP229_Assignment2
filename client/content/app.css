@@ -98,6 +98,60 @@ emphasized {
   /* Other styles here */
 }
 
+.javascript-icon {
+  background: url("/assets/images/javascript_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.react-icon {
+  background: url("/assets/images/react_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.python-icon {
+  background: url("/assets/images/python_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.android-icon {
+  background: url("/assets/images/android_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.oracle-sql-icon {
+  background: url("/assets/images/oracle_sql_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
+.mongodb-icon {
+  background: url("/assets/images/mongodb_icon.png") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-size: contain;
+  /* Other styles here */
+}
+
 .carousel .carousel-inner img {
   width: 100%;
   height: 30em;
