@@ -7,7 +7,8 @@
 })();
 function scrollToElement(elementId) {
     console.log('Scrolling to' + elementId);
-    var elmnt = document.getElementById(elementId);
-    elmnt.scrollIntoView();
+    let elmnt = document.getElementById(elementId);
+    console.log(elmnt);
+    elmnt.scrollIntoView(true);
 }
 //# sourceMappingURL=app.js.map

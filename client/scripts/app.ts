@@ -11,8 +11,10 @@
     
 })()
 
+//Work in Progress
 function scrollToElement(elementId: string):void {
-    console.log('Scrolling to' + elementId)
-    var elmnt = document.getElementById(elementId);
-    elmnt.scrollIntoView();
+    console.log('Scrolling to' + elementId);
+    let elmnt = document.getElementById(elementId);
+    console.log(elmnt);
+    elmnt.scrollIntoView(true);
 }
