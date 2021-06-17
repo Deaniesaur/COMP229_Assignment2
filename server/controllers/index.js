@@ -3,23 +3,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 let age = yearsDiff(new Date('1995-06-28'), new Date());
 function DisplayHomePage(req, res, next) {
-    res.render('index', { title: 'Home' });
+    res.render('index', { title: 'Home', page: 'home' });
 }
 exports.DisplayHomePage = DisplayHomePage;
 function DisplayAboutPage(req, res, next) {
-    res.render('index', { title: 'About', age: age });
+    res.render('index', { title: 'About', page: 'about', age: age });
 }
 exports.DisplayAboutPage = DisplayAboutPage;
 function DisplayProjectsPage(req, res, next) {
-    res.render('index', { title: 'Projects' });
+    res.render('index', { title: 'Projects', page: 'projects' });
 }
 exports.DisplayProjectsPage = DisplayProjectsPage;
 function DisplayServicesPage(req, res, next) {
-    res.render('index', { title: 'Services' });
+    res.render('index', { title: 'Services', page: 'services' });
 }
 exports.DisplayServicesPage = DisplayServicesPage;
 function DisplayContactPage(req, res, next) {
-    res.render('index', { title: 'Contact' });
+    res.render('index', { title: 'Contact', page: 'contact' });
 }
 exports.DisplayContactPage = DisplayContactPage;
 function yearsDiff(d1, d2) {

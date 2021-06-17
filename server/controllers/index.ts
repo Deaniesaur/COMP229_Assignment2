@@ -4,23 +4,23 @@ import express, {Request, Response, NextFunction} from 'express';
 let age = yearsDiff(new Date('1995-06-28'), new Date());
 
 export function DisplayHomePage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', {title: 'Home'});
+    res.render('index', {title: 'Home', page: 'home'});
 }
 
 export function DisplayAboutPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'About', age: age });
+    res.render('index', { title: 'About', page: 'about', age: age });
 }
 
 export function DisplayProjectsPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Projects' });
+    res.render('index', { title: 'Projects', page: 'projects' });
 }
 
 export function DisplayServicesPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Services' });
+    res.render('index', { title: 'Services', page: 'services' });
 }
 
 export function DisplayContactPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Contact' });
+    res.render('index', { title: 'Contact', page: 'contact' });
 }
 
 // Function for computing Difference in Years

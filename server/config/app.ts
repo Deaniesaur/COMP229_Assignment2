@@ -6,6 +6,7 @@ import logger from 'morgan';
 import mongoose from 'mongoose';
 
 import indexRouter from '../routes/index';
+import userRouter from '../routes/user';
 
 //App Configuration
 const app = express();
@@ -30,7 +31,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../client')));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
+
+//Routing
 app.use('/', indexRouter);
+app.use('/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
