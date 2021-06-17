@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 let age = yearsDiff(new Date('1995-06-28'), new Date());
 function DisplayHomePage(req, res, next) {
     res.render('index', { title: 'Home', page: 'home' });
@@ -22,6 +22,10 @@ function DisplayContactPage(req, res, next) {
     res.render('index', { title: 'Contact', page: 'contact' });
 }
 exports.DisplayContactPage = DisplayContactPage;
+function DisplayLoginPage(req, res, next) {
+    res.render('index', { title: 'Login', page: 'login', messages: [] });
+}
+exports.DisplayLoginPage = DisplayLoginPage;
 function yearsDiff(d1, d2) {
     let date1 = new Date(d1);
     let date2 = new Date(d2);

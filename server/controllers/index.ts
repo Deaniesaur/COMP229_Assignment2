@@ -23,6 +23,10 @@ export function DisplayContactPage(req: Request, res: Response, next: NextFuncti
     res.render('index', { title: 'Contact', page: 'contact' });
 }
 
+export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void{
+    res.render('index', { title: 'Login', page: 'login', messages: []});
+}
+
 // Function for computing Difference in Years
 function yearsDiff(d1: Date, d2: Date) {
     let date1 = new Date(d1);
