@@ -8,6 +8,14 @@ import mongoose from 'mongoose';
 import indexRouter from '../routes/index';
 import userRouter from '../routes/user';
 
+// modules for authentication
+import session from 'express-session';
+import passport from 'passport';
+import passportLocal from 'passport-local';
+
+// authentication objects 
+
+
 //App Configuration
 const app = express();
 export default app; //exports app as the default Object for this module
