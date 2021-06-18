@@ -6,7 +6,7 @@ import logger from 'morgan';
 import mongoose from 'mongoose';
 
 import indexRouter from '../routes/index';
-import userRouter from '../routes/user';
+import businessContactRouter from '../routes/business_contact';
 
 //modules for authentication
 import session from 'express-session';
@@ -74,7 +74,7 @@ passport.deserializeUser(User.deserializeUser());
   
 //Routing
 app.use('/', indexRouter);
-app.use('/users', userRouter);
+app.use('/business-contacts', businessContactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

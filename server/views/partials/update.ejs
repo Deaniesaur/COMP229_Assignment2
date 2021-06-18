@@ -1,0 +1,31 @@
+<div class="row justify-content-lg-center g-3">
+    <h1><%= title %> Business Contact</h1>
+
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Name</span>
+            <input type="text" class="form-control" placeholder="Enter Full Name" aria-label="Clothing Name" aria-describedby="Contact Name"
+            name="name" value="<%= contact.name %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Contact Number</span>
+            <input type="text" class="form-control" placeholder="Enter Contact Number" aria-label="Clothing Brand" aria-describedby="Contact Number"
+            name="contact" value="<%= contact.contact %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Email Address</span>
+            <input type="text" class="form-control" placeholder="Enter Email Address" aria-label="Clothing Category" aria-describedby="Contact Email"
+            name="email" value="<%= contact.email %>" required>
+        </div>
+
+        <% if(title == "Edit") { %>
+            <button type="submit" id="editButton" class="btn btn-primary bg-success"><i class="fas fa-edit fa-lg"></i> Apply Changes</button>
+        <% } else { %>
+            <button type="submit" id="addButton" class="btn btn-primary bg-success"><i class="fas fa-plus-circle fa-lg"></i> Add</button>
+        <% } %>  
+            
+        <a href="/business-contacts" id="cancelButton" type="button" class="btn btn-light border border-dark"><i class="fas fa-undo"></i> Cancel</a>
+    </form>
+</div>

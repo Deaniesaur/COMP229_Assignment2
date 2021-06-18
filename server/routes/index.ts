@@ -4,7 +4,7 @@ const router = express.Router();
 export default router;
 
 //Create an index controller instance
-import { DisplayAboutPage, DisplayContactPage, DisplayHomePage, DisplayLoginPage, DisplayProjectsPage, DisplayServicesPage } from '../controllers/index';
+import { DisplayAboutPage, DisplayContactPage, DisplayHomePage, DisplayLoginPage, DisplayProjectsPage, DisplayRegisterPage, DisplayServicesPage, ProcessLoginPage, ProcessLogout, ProcessRegisterPage } from '../controllers/index';
 
 /* GET home page. */
 router.get('/', DisplayHomePage);
@@ -24,7 +24,19 @@ router.get('/services', DisplayServicesPage);
 /* GET contact page. */
 router.get('/contact', DisplayContactPage);
 
-/* GET contact page. */
+/* GET login page. */
 router.get('/login', DisplayLoginPage);
+
+/* POST process login button. */
+router.post('/login', ProcessLoginPage);
+
+/* GET registration page. */
+router.get('/register', DisplayRegisterPage);
+
+/* POST process register button. */
+router.post('/register', ProcessRegisterPage);
+
+/* GET process logout. */
+router.get('/logout', ProcessLogout);
 
 // module.exports = router;

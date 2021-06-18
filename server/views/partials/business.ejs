@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center display-3">Business Contacts</div>
+<table class="table table-striped mt-3">
+    <thead class="table align-middle">
+        <tr class="table-dark">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Email Address</th>
+            <th scope="col"></th>
+            <th class="d-flex justify-content-end" scope="col"><a href="/business-contacts/add" class="btn btn-primary bg-dark border border-light"><i class="fas fa-plus fa-lg bg-dark"></i> Add</a></td></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(let count = 0; count < contacts.length; count++) { %>
+            <tr>
+                <th scope="row"><%= count+1 %></th>
+                <td><%= contacts[count].name %></td>
+                <td><%= contacts[count].contact %></td>
+                <td><%= contacts[count].email %></td>
+                <td>
+                    <a href="/business-contacts/edit/<%= contacts[count]._id %>" class="btn btn-primary btn-sm bg-primary"><i class="fas fa-edit fa-sm"></i> Edit</a>
+                </td>
+                <td>
+                    <a href="/business-contacts/delete/<%= contacts[count]._id %>" class="btn btn-primary btn-sm bg-danger"><i class="fas fa-trash-alt fa-sm"></i> Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

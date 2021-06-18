@@ -1,6 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.ProcessLogout = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+const passport_1 = __importDefault(require("passport"));
+const user_1 = __importDefault(require("../models/user"));
 let age = yearsDiff(new Date('1995-06-28'), new Date());
 function DisplayHomePage(req, res, next) {
     res.render('index', { title: 'Home', page: 'home' });
@@ -23,9 +28,63 @@ function DisplayContactPage(req, res, next) {
 }
 exports.DisplayContactPage = DisplayContactPage;
 function DisplayLoginPage(req, res, next) {
-    res.render('index', { title: 'Login', page: 'login', messages: [] });
+    if (!req.user) {
+        res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
+    }
 }
 exports.DisplayLoginPage = DisplayLoginPage;
+function ProcessLoginPage(req, res, next) {
+    passport_1.default.authenticate('local', (err, user, info) => {
+        if (err) {
+            console.error(err);
+            return next(err);
+        }
+        if (!user) {
+            req.flash('loginMessage', 'Authentication Error');
+            return res.redirect('/login');
+        }
+        req.login(user, (err) => {
+            if (err) {
+                console.error(err);
+                return next(err);
+            }
+            return res.redirect('/home');
+        });
+    })(req, res, next);
+}
+exports.ProcessLoginPage = ProcessLoginPage;
+function DisplayRegisterPage(req, res, next) {
+    if (!req.user) {
+        res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage') });
+    }
+}
+exports.DisplayRegisterPage = DisplayRegisterPage;
+function ProcessRegisterPage(req, res, next) {
+    let newUser = new user_1.default({
+        username: req.body.username,
+        email: req.body.email,
+        display: req.body.first + " " + req.body.last
+    });
+    user_1.default.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.error('Error: Inserting New User');
+            if (err.name == "UserExistsError") {
+                console.error('Error: User already exists');
+            }
+            req.flash('registerMessage: Registration Error');
+            return res.redirect('/register');
+        }
+        return passport_1.default.authenticate('local')(req, req, () => {
+            return res.redirect('home');
+        });
+    });
+}
+exports.ProcessRegisterPage = ProcessRegisterPage;
+function ProcessLogout(req, res, next) {
+    req.logout;
+    res.redirect('/login');
+}
+exports.ProcessLogout = ProcessLogout;
 function yearsDiff(d1, d2) {
     let date1 = new Date(d1);
     let date2 = new Date(d2);

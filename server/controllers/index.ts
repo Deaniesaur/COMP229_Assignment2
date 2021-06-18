@@ -1,4 +1,6 @@
 import express, {Request, Response, NextFunction} from 'express';
+import passport from 'passport';
+import User from '../models/user';
 
 //Get age of Dean Pinlac using BirthDate and Current Date
 let age = yearsDiff(new Date('1995-06-28'), new Date());
@@ -24,7 +26,71 @@ export function DisplayContactPage(req: Request, res: Response, next: NextFuncti
 }
 
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Login', page: 'login', messages: []});
+    if(!req.user){
+        res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage')});
+    }
+}
+
+export function ProcessLoginPage(req: Request, res: Response, next: NextFunction): void{
+    passport.authenticate('local', (err, user, info) => {
+        //server errors
+        if(err){
+            console.error(err);
+            return next(err);
+        }
+
+        //login errors
+        if(!user){
+            req.flash('loginMessage', 'Authentication Error');
+            return res.redirect('/login');
+        }
+
+        req.login(user, (err) => {
+            if(err){
+                console.error(err);
+                return next(err);
+            }
+
+            return res.redirect('/home');
+        })
+    })(req, res, next);
+}
+
+export function DisplayRegisterPage(req: Request, res: Response, next: NextFunction): void{
+    if(!req.user){
+        res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage')});
+    }
+}
+
+export function ProcessRegisterPage(req: Request, res: Response, next: NextFunction): void{
+    //instantiate a new User object
+    let newUser = new User({
+        username: req.body.username,
+        email: req.body.email,
+        display: req.body.first + " " + req.body.last
+    })
+
+    User.register(newUser, req.body.password, (err) => {
+        if(err){
+            console.error('Error: Inserting New User');
+            if(err.name == "UserExistsError"){
+                console.error('Error: User already exists');
+            }
+            req.flash('registerMessage: Registration Error');
+
+            return res.redirect('/register');
+        }
+
+        //after successful regitration - login the user
+        return passport.authenticate('local')(req, req, () => {
+            return res.redirect('home');
+        })
+    })
+}
+
+export function ProcessLogout(req: Request, res: Response, next: NextFunction): void{
+    req.logout;
+    res.redirect('/login');
 }
 
 // Function for computing Difference in Years
