@@ -40,11 +40,11 @@ const connect_flash_1 = __importDefault(require("connect-flash"));
 const app = express_1.default();
 exports.default = app;
 const DBConfig = __importStar(require("./db"));
-mongoose_1.default.connect(DBConfig.LocalURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose_1.default.connect(DBConfig.MongoDBURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose_1.default.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function () {
-    console.log(`Connected to MongoDB at: ${DBConfig.LocalURI}`);
+    console.log(`Connected to MongoDB at: ${DBConfig.Host}`);
 });
 app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'ejs');

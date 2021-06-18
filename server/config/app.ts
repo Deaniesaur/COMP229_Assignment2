@@ -30,12 +30,12 @@ export default app; //exports app as the default Object for this module
 
 //DB Configuration
 import * as DBConfig from "./db";
-mongoose.connect(DBConfig.LocalURI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(DBConfig.MongoDBURI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function(){
-  console.log(`Connected to MongoDB at: ${DBConfig.LocalURI}`);
+  console.log(`Connected to MongoDB at: ${DBConfig.Host}`);
 })
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
