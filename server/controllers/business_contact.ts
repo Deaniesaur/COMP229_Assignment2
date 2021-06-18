@@ -2,6 +2,8 @@ import express, {Request , Response, NextFunction} from 'express';
 
 import BusinessContacts from '../models/business_contact';
 
+import { GetDisplayName } from '../util';
+
 export function DisplayAllContacts(req: Request, res: Response, next: NextFunction): void{
     BusinessContacts.find(function(err, businessContacts){
         if(err){
@@ -9,14 +11,14 @@ export function DisplayAllContacts(req: Request, res: Response, next: NextFuncti
         }
         
         console.log(businessContacts);
-        res.render('index', { title: 'Business', page: 'business', contacts: businessContacts});
-    })
+        res.render('index', { title: 'Business', page: 'business', contacts: businessContacts, display: GetDisplayName(req)});
+    }).sort({lastname:1, firstname:1});
 }
 
 export function DisplayAddContact(req: Request, res: Response, next: NextFunction): void{
     let id = req.params.id;
 
-    res.render('index', { title: 'Add', page: 'update', contact: ''});
+    res.render('index', { title: 'Add', page: 'update', contact: '', display: GetDisplayName(req)});
 }
 
 
@@ -26,7 +28,8 @@ export function ProcessAddContact(req: Request, res: Response, next: NextFunctio
     //instantiate a new contact
     let updatedContact = new BusinessContacts({
         _id: id,
-        name: req.body.name,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         contact: req.body.contact,
         email: req.body.email
     });
@@ -51,7 +54,7 @@ export function DisplayEditContact(req: Request, res: Response, next: NextFuncti
         }
         
         console.log(businessContact);
-        res.render('index', { title: 'Edit', page: 'update', contact: businessContact});
+        res.render('index', { title: 'Edit', page: 'update', contact: businessContact, display: GetDisplayName(req)});
     })
 }
 
@@ -61,7 +64,8 @@ export function ProcessEditContact(req: Request, res: Response, next: NextFuncti
     //instantiate a new contact
     let updatedContact = new BusinessContacts({
         _id: id,
-        name: req.body.name,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         contact: req.body.contact,
         email: req.body.email
     });

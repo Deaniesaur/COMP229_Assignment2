@@ -6,23 +6,27 @@
             <th scope="col">Name</th>
             <th scope="col">Contact Number</th>
             <th scope="col">Email Address</th>
+            <% if(display !== '') { %>
             <th scope="col"></th>
             <th class="d-flex justify-content-end" scope="col"><a href="/business-contacts/add" class="btn btn-primary bg-dark border border-light"><i class="fas fa-plus fa-lg bg-dark"></i> Add</a></td></th>
+            <% } %>
         </tr>
     </thead>
     <tbody>
         <% for(let count = 0; count < contacts.length; count++) { %>
             <tr>
                 <th scope="row"><%= count+1 %></th>
-                <td><%= contacts[count].name %></td>
+                <td><%= contacts[count].lastname + ', ' + contacts[count].firstname %></td>
                 <td><%= contacts[count].contact %></td>
                 <td><%= contacts[count].email %></td>
+                <% if(display !== '') { %>
                 <td>
-                    <a href="/business-contacts/edit/<%= contacts[count]._id %>" class="btn btn-primary btn-sm bg-primary"><i class="fas fa-edit fa-sm"></i> Edit</a>
+                    <a href="/business-contacts/edit/<%= contacts[count]._id %>" class="btn btn-primary btn-sm bg-primary delete" type="button"><i class="fas fa-edit fa-sm"></i> Edit</a>
                 </td>
                 <td>
-                    <a href="/business-contacts/delete/<%= contacts[count]._id %>" class="btn btn-primary btn-sm bg-danger"><i class="fas fa-trash-alt fa-sm"></i> Delete</a>
+                    <a href="/business-contacts/delete/<%= contacts[count]._id %>" class="btn btn-primary btn-sm bg-danger delete" type="button"><i class="fas fa-trash-alt fa-sm"></i> Delete</a>
                 </td>
+                <% } %>
             </tr>
         <% } %>
     </tbody>

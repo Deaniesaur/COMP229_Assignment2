@@ -1,18 +1,16 @@
-import mongoose, { PassportLocalSchema } from 'mongoose';
-import passportLocalMongoose from 'passport-local-mongoose';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
 const BusinessContactSchema = new Schema({
-    name: String,
+    firstname: String,
+    lastname: String,
     email: String,
     contact: String
 },
 {
     collection: 'business_contacts'
 });
-
-BusinessContactSchema.plugin(passportLocalMongoose);
 
 const Model = mongoose.model('BusinessContact', BusinessContactSchema);
 

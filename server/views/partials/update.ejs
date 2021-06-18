@@ -3,20 +3,26 @@
 
     <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-name">Name</span>
-            <input type="text" class="form-control" placeholder="Enter Full Name" aria-label="Clothing Name" aria-describedby="Contact Name"
-            name="name" value="<%= contact.name %>" required>
+            <span class="input-group-text" id="inputGroup-name">First Name</span>
+            <input type="text" class="form-control" placeholder="Enter First Name" aria-label="First Name" aria-describedby="First Name"
+            name="firstname" value="<%= contact.firstname %>" required>
+        </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Last Name</span>
+            <input type="text" class="form-control" placeholder="Enter Last Name" aria-label="Last Name" aria-describedby="Last Name"
+            name="lastname" value="<%= contact.lastname %>" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-name">Contact Number</span>
-            <input type="text" class="form-control" placeholder="Enter Contact Number" aria-label="Clothing Brand" aria-describedby="Contact Number"
+            <input type="text" class="form-control" placeholder="Enter Contact Number" aria-label="Contact Number" aria-describedby="Contact Number"
             name="contact" value="<%= contact.contact %>" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-name">Email Address</span>
-            <input type="text" class="form-control" placeholder="Enter Email Address" aria-label="Clothing Category" aria-describedby="Contact Email"
+            <input type="text" class="form-control" placeholder="Enter Email Address" aria-label="Contact Email" aria-describedby="Contact Email"
             name="email" value="<%= contact.email %>" required>
         </div>
 

@@ -5,29 +5,32 @@ import User from '../models/user';
 //Get age of Dean Pinlac using BirthDate and Current Date
 let age = yearsDiff(new Date('1995-06-28'), new Date());
 
+//import Util Function
+import { GetDisplayName } from '../util';
+
 export function DisplayHomePage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', {title: 'Home', page: 'home'});
+    res.render('index', {title: 'Home', page: 'home', display: GetDisplayName(req)});
 }
 
 export function DisplayAboutPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'About', page: 'about', age: age });
+    res.render('index', { title: 'About', page: 'about', age: age , display: GetDisplayName(req)});
 }
 
 export function DisplayProjectsPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Projects', page: 'projects' });
+    res.render('index', { title: 'Projects', page: 'projects' , display: GetDisplayName(req)});
 }
 
 export function DisplayServicesPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Services', page: 'services' });
+    res.render('index', { title: 'Services', page: 'services' , display: GetDisplayName(req)});
 }
 
 export function DisplayContactPage(req: Request, res: Response, next: NextFunction): void{
-    res.render('index', { title: 'Contact', page: 'contact' });
+    res.render('index', { title: 'Contact', page: 'contact' , display: GetDisplayName(req)});
 }
 
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void{
     if(!req.user){
-        res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage')});
+        res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), display: GetDisplayName(req)});
     }
 }
 
@@ -51,14 +54,14 @@ export function ProcessLoginPage(req: Request, res: Response, next: NextFunction
                 return next(err);
             }
 
-            return res.redirect('/home');
+            return res.redirect('/business-contacts');
         })
     })(req, res, next);
 }
 
 export function DisplayRegisterPage(req: Request, res: Response, next: NextFunction): void{
     if(!req.user){
-        res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage')});
+        res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), display: GetDisplayName(req)});
     }
 }
 
@@ -83,13 +86,13 @@ export function ProcessRegisterPage(req: Request, res: Response, next: NextFunct
 
         //after successful regitration - login the user
         return passport.authenticate('local')(req, req, () => {
-            return res.redirect('home');
+            return res.redirect('/business-contacts');
         })
     })
 }
 
 export function ProcessLogout(req: Request, res: Response, next: NextFunction): void{
-    req.logout;
+    req.logout();
     res.redirect('/login');
 }
 
