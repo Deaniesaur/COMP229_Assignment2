@@ -17,7 +17,6 @@ function DisplayAllContacts(req, res, next) {
 }
 exports.DisplayAllContacts = DisplayAllContacts;
 function DisplayAddContact(req, res, next) {
-    let id = req.params.id;
     res.render('index', { title: 'Add', page: 'update', contact: '', display: util_1.GetDisplayName(req) });
 }
 exports.DisplayAddContact = DisplayAddContact;

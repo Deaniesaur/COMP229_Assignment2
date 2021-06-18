@@ -1,7 +1,18 @@
 "use strict";
 (function () {
-    function confirmDelete() {
-        $('a.delete').on('click', function (event) {
+    var forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    });
+    function confirmAction() {
+        $('a.confirm').on('click', function (event) {
             if (!confirm('Are you sure?')) {
                 event.preventDefault();
                 location.href = '/business-contacts';
@@ -10,7 +21,7 @@
     }
     function Start() {
         console.log("App Started");
-        confirmDelete();
+        confirmAction();
     }
     window.addEventListener("load", Start);
 })();

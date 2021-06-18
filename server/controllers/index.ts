@@ -79,7 +79,7 @@ export function ProcessRegisterPage(req: Request, res: Response, next: NextFunct
             if(err.name == "UserExistsError"){
                 console.error('Error: User already exists');
             }
-            req.flash('registerMessage: Registration Error');
+            req.flash('registerMessage', 'Registration Error');
 
             return res.redirect('/register');
         }

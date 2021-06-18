@@ -16,10 +16,10 @@ export function DisplayAllContacts(req: Request, res: Response, next: NextFuncti
 }
 
 export function DisplayAddContact(req: Request, res: Response, next: NextFunction): void{
-    let id = req.params.id;
-
+    
     res.render('index', { title: 'Add', page: 'update', contact: '', display: GetDisplayName(req)});
 }
+
 
 
 export function ProcessAddContact(req: Request, res: Response, next: NextFunction): void{
